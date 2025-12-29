@@ -3,7 +3,7 @@ body {
 
     /* Виправлений шлях */
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-   <img src=(img/'bg.jpg')>;
+    url('../img/bg.jpg');
 
     background-repeat: no-repeat;
     background-position: center center;
