@@ -3,8 +3,8 @@ body {
 
     /* Виправлений шлях */
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url('../img/bg.jpg');
-
+    <div style="background-image: url('bg.jpg');">
+        
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
