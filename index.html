@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Розрахунок дискримінанта</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="card">
+    <h1>Сайт із знаходження дискримінанта</h1>
+    <p>Введіть коефіцієнти для рівняння: ax² + bx + c = 0</p>
+
+    <div class="input-group">
+        <div class="input-item">
+            <label>a:</label>
+            <input type="number" id="a" placeholder=" ">
+        </div>
+        <div class="input-item">
+            <label>b:</label>
+            <input type="number" id="b" placeholder=" ">
+        </div>
+        <div class="input-item">
+            <label>c:</label>
+            <input type="number" id="c" placeholder=" ">
+        </div>
+    </div>
+
+    <button onclick="calculate()">Розрахувати</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    function calculate() {
+        const a = parseFloat(document.getElementById('a').value);
+        const b = parseFloat(document.getElementById('b').value);
+        const c = parseFloat(document.getElementById('c').value);
+        const resultDiv = document.getElementById('result');
+
+        if (isNaN(a) || isNaN(b) || isNaN(c)) {
+            resultDiv.innerHTML = "Заповніть усі поля!";
+            resultDiv.className = "show error";
+            return;
+        }
+
+        const D = Math.pow(b, 2) - 4 * a * c;
+        let message = `<strong>Дискримінант (D) = ${D}</strong><br>`;
+
+        if (D > 0) {
+            const x1 = ((-b + Math.sqrt(D)) / (2 * a)).toFixed(2);
+            const x2 = ((-b - Math.sqrt(D)) / (2 * a)).toFixed(2);
+            message += `Рівняння має два корені:<br>x₁ = ${x1} | x₂ = ${x2}`;
+        } else if (D === 0) {
+            const x = (-b / (2 * a)).toFixed(2);
+            message += `Рівняння має один корінь: x = ${x}`;
+        } else {
+            message += "Рівняння не має дійсних коренів.";
+        }
+
+        resultDiv.innerHTML = message;
+        resultDiv.className = "show"; // Порогове відображення
+    }
+</script>
+</body>
+</html>
